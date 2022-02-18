@@ -1,0 +1,24 @@
+Into to Shapez:
+- To add a shape, use the buttons that are in the grey pannel.
+- To change shape properties right click a shape.
+- To open a file, click the "open" button.
+- To save a file, click the "save" button.
+- When you click on a shape, circles will appear. Click and drag them to change it's shape.
+- All information that Shapez gives to you is shown in the command prompt. (Intigration comming soon)
+
+Shape actions:
+- Delete 
+- Deselect : Removes the circles from the shape
+- Bring Forward 
+- Send Back
+- Change Color
+- Add Outline
+- Remove Outline
+
+Known bugs:
+    * Selection Circles can become offset when resizing shape.
+        - To reset offset circles, deselect the shape then select it again.
+
+    * You can still change shape properties even when the shape is not selected.
+
+    * "Open" and "Save" button remain visually pushed after being used once.
