@@ -1,26 +1,18 @@
-from .Base import Shapes
+from .Shape import Shapes
+from Structs.Struct import Rectangle as Rect
 
 class Rectangle(Shapes):
 
-    def create(self):
-        self.tag = Shapes.make_tag("rectangle")
+    shape_type = 'Rectangle'
+    shape_amount = 0
 
-        self.rectangle = self.canvas.create_rectangle(self.x,self.y, self.x+100, self.y+100,
-        fill=self.color, tags=self.tag, outline=self.outline)
-        self.tag_bind()
-        self.shape_id = self.canvas.gettags(self.rectangle)
+    def __init__(self, canvas, coorditanes: Rect, color, outline='', tag=None) -> None:
+        self.coordinates = coorditanes
+        super().__init__(canvas, color, outline, tag)
 
-    def make(canvas):
-        r2 = Rectangle(width=Shapes.width, height=Shapes.height, canvas=canvas)
-        r2.create()
-        return r2
-    
     def load(self):
-        self.tag = Shapes.make_tag("rectangle")
-        
-        x1,y1, x2, y2 = self.coords
-        self.rectangle = self.canvas.create_rectangle(x1[1:],y1, x2,y2[:-2],
-        fill=self.color, tags=self.tag, outline=self.outline)
-
-        self.tag_bind()
-        self.shape_id = self.canvas.gettags(self.rectangle)
+        Rectangle.shape_amount += 1
+        self.make_tag(Rectangle.shape_type, Rectangle.shape_amount)
+    
+    def create(self):
+        self.canvas.create_rectangle(self.coordinates, outline = self.outline, fill = self.color)
