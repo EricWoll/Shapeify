@@ -9,7 +9,6 @@ class Window:
     def __init__(self, title: str, dimentions: Geometry, resizeable: Resizeable) -> None:
         self.make()
         self.set_title(title)
-        self._find_screen_size()
         self.size_window(dimentions)
         self.is_resizeable(resizeable)
 
@@ -36,6 +35,8 @@ class Window:
         - dimentions (struct): holds width, height, x position, and y position of the window
         - is_centered: defines whether or not window is centered on user's screen
         '''
+        self._find_screen_size()
+        
         if is_centered:
             dimentions.x_pos = (self.screen_width//2 - dimentions.width//2)
             dimentions.y_pos = (self.screen_height//2 - dimentions.height//2)
